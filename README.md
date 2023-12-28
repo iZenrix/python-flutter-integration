@@ -1,6 +1,10 @@
-The gist:
+## The Gist: 
 Laravel + Python + Flutter
 
-Laravel: Back End
-Python: Running Script
-Fluter: Front End
+---
+
+Laravel: Back End.
+
+Python: Running Script.
+
+Fluter: Front End.
