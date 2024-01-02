@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_python_integration/app/routes/app_pages.dart';
 
 import 'package:get/get.dart';
 
@@ -11,68 +11,43 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Multiply'),
+        title: const Text('Python Integration App'),
         centerTitle: true,
         backgroundColor: Colors.greenAccent,
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-            child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-          child: Form(
-              child: Column(
-            children: <Widget>[
-              TextFormField(
-                style: const TextStyle(color: Colors.black87),
-                decoration: const InputDecoration(
-                  labelText: 'Number 1',
-                  hintText: 'Number 1',
-                ),
-                textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.digitsOnly
-                ],
-                controller: controller.number1,
-              ),
-              const SizedBox(height: 20),
-              TextFormField(
-                style: const TextStyle(color: Colors.black),
-                decoration: const InputDecoration(
-                  labelText: 'Number 2',
-                  hintText: 'Number 2',
-                ),
-                textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.digitsOnly
-                ],
-                controller: controller.number2,
-              ),
-              const SizedBox(height: 20),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
               ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent),
-                onPressed: () async {
-                  controller.multiply();
+                onPressed: () {
+                  Get.toNamed(Routes.MULTIPLY);
                 },
-                child: const Center(
-                  child: Text(
-                    "submit",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.0,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
+                child: const Text("Multiply 2 Number"),
               ),
-              const SizedBox(height: 20),
-              Obx(() => Text("Result = ${controller.result.value}"))
+              const SizedBox(
+                height: 25,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Get.toNamed(Routes.FIBONACCI);
+                },
+                child: const Text("Fibonacci Number Series"),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Get.toNamed(Routes.PRIME);
+                },
+                child: const Text("Series of Prime Numbers"),
+              ),
             ],
-          )),
-        )),
+          ),
+        ),
       ),
     );
   }
