@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\FibonacciController;
 use App\Http\Controllers\MultiplyController;
-use App\Livewire\MultiplyPython;
+use App\Http\Controllers\PrimeNumberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,3 +14,5 @@ Route::get('/multiply', MultiplyController::class);
 Route::get('/tes', function () {
     return 'Hello World';
 });
+Route::get('/fibonacci', FibonacciController::class);
+Route::get('/prime', PrimeNumberController::class);
